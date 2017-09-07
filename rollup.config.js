@@ -22,24 +22,24 @@ export default [
 			}),
 			// so Rollup can use babel to transpile to es5
 			uglify()
-		]
+		],
 	},
 		// CommonJS (for Node) and ES module (for bundlers) build.
 		// (We could have three entries in the configuration array
 		// instead of two, but it's quicker to generate multiple
 		// builds from a single configuration where possible, using
 		// the `targets` option which can specify `dest` and `format`)
-		{
-			input,
-			output: [
-				{
-	        file: 'dist/bundle.cjs.js',
-	        format: 'cjs'
-	      },
-				{
-	        file: 'dist/bundle.esm.js',
-	        format: 'es'
-	      }
-			]
-		}
+		// {
+		// 	input,
+		// 	output: [
+		// 		{
+	  //       file: 'dist/bundle.cjs.js',
+	  //       format: 'cjs'
+	  //     },
+		// 		{
+	  //       file: 'dist/bundle.esm.js',
+	  //       format: 'es'
+	  //     }
+		// 	]
+		// }
 ]
