@@ -42,7 +42,9 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "execa": "^0.10.0",
     "inquirer": "^6.0.0",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "listr": "^0.14.1"
   }
 }

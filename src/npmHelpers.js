@@ -6,7 +6,7 @@ exports.npmBumpVersion = version => {
     );
   } catch (e) {
     console.error('Failed to bump package version');
-    console.error(e.stderr.toString());
+    // console.error(e.stderr.toString());
     return null;
   }
 };

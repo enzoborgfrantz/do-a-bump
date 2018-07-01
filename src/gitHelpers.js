@@ -13,13 +13,16 @@ const headers = {
 const createBranch = version => {
   const branchName = `${repoName}-${version}-bump`;
 
-  const result = execSync('git checkout -b ${branchName}', {
+  execSync(`git checkout -b ${branchName}`, {
     stdio: 'inherit',
   });
-  console.log(result);
 
-  return { branchName, ...result }; // also return commit name?
+  // add package json and commit
+
+  return { branchName }; // also return commit name?
 };
+
+module.exports = { createBranch };
 
 const openPR = async (version, commitId, branchName) => {
   console.log('Opening PR...');
