@@ -1,6 +1,6 @@
 {
   "name": "do-a-bump",
-  "version": "0.0.3",
+  "version": "0.0.10",
   "description": "A Library for bumping library versions",
   "main": "dist/bundle.umd.js",
   "directories": {
@@ -11,8 +11,8 @@
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --watchAll --coverage",
     "build": "NODE_ENV=prod rollup -c",
-    "publish": "npm build && npm publish",
-    "start": "npm run build && node ./dist/bundle.umd.js"
+    "start": "npm run build && node ./dist/bundle.umd.js",
+    "release": "npm run build && node ./src/marin.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,9 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "inquirer": "^6.0.0"
+    "execa": "^0.10.0",
+    "inquirer": "^6.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "listr": "^0.14.1"
   }
 }
