@@ -1,6 +1,6 @@
 {
   "name": "do-a-bump",
-  "version": "0.0.5",
+  "version": "0.0.3",
   "description": "A Library for bumping library versions",
   "main": "dist/bundle.umd.js",
   "directories": {
