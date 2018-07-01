@@ -5,15 +5,17 @@ const { execSync } = require('child_process');
 const { versionTypePrompt, customVersionTypePrompt } = require('./prompts');
 
 const getNextVersion = async currentVersion => {
-  const { versionType } = await inquirer.prompt(versionTypePrompt);
+  const { versionType } = await inquirer.prompt(
+    versionTypePrompt(currentVersion),
+  );
 
   if (versionType !== 'other') {
-    return semver.inc(currentVersion, versionType);
+    return { version: semver.inc(currentVersion, versionType), versionType };
   }
 
   const { customVersion } = await inquirer.prompt(customVersionTypePrompt);
 
-  return customVersion;
+  return { version: customVersion, versionType: '' };
 };
 
 const npmBumpVersion = version => {
@@ -41,12 +43,12 @@ const npmPublish = () => {
 
 const bump = async ({ resolveCurrentVersion }) => {
   const currentVersion = await resolveCurrentVersion();
-  const nextVersion = await getNextVersion(currentVersion);
+  const { version, versionType } = await getNextVersion(currentVersion);
   console.log('next verison is: ', nextVersion);
-  npmBumpVersion(nextVersion);
-  npmPublish();
+  // npmBumpVersion(nextVersion);
+  // npmPublish();
 };
 
-const getCurrentVersion = async () => Promise.resolve('0.0.1');
+const getCurrentVersion = async () => Promise.resolve('0.0.2');
 
 bump({ resolveCurrentVersion: getCurrentVersion });
