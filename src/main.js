@@ -29,6 +29,6 @@ const bump = async ({ resolveCurrentVersion }) => {
   createBranch(version);
 };
 
-const getCurrentVersion = async () => Promise.resolve('0.0.9');
+const getCurrentVersion = async () => Promise.resolve('0.0.10');
 
 bump({ resolveCurrentVersion: getCurrentVersion });
