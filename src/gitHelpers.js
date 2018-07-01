@@ -95,7 +95,7 @@ const mergePR = async ({ number, head: { sha } }) => {
       method: 'PUT',
       headers,
       body: JSON.stringify({
-        commit_title: 'Merge ${repoName} version bump',
+        commit_title: `Merge ${repoName} version bump`,
         commit_message: '',
         sha,
         merge_method: 'squash',
