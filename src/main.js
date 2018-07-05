@@ -3,8 +3,8 @@ const semver = require('semver');
 const { execSync } = require('child_process');
 
 const { versionTypePrompt, customVersionTypePrompt } = require('./prompts');
-const { npmBumpVersion, npmPublish } = require('./npmHelpers');
-const { createBranch } = require('./gitHelpers');
+// const { npmBumpVersion, npmPublish } = require('./npmHelpers');
+// const { createBranch } = require('./gitHelpers');
 
 const getNextVersion = async currentVersion => {
   const { versionType } = await inquirer.prompt(
@@ -20,15 +20,16 @@ const getNextVersion = async currentVersion => {
   return customVersion;
 };
 
-const bump = async ({ resolveCurrentVersion }) => {
-  const currentVersion = await resolveCurrentVersion();
+const bump = async ({ currentVersion }) => {
   const version = await getNextVersion(currentVersion);
   console.log('next verison is: ', version);
-  npmBumpVersion(version);
-  npmPublish();
-  createBranch(version);
+  // npmBumpVersion(version);
+  // npmPublish();
+  // createBranch(version);
 };
 
-const getCurrentVersion = async () => Promise.resolve('0.0.10');
+const getCurrentVersion = async () => Promise.resolve('0.0.11');
 
-bump({ resolveCurrentVersion: getCurrentVersion });
+getCurrentVersion().then(currentVersion => {
+  bump({ currentVersion });
+});
