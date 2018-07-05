@@ -10,19 +10,19 @@ const headers = {
   'Cache-control': 'no-cache',
 };
 
-const createBranch = version => {
-  const branchName = `${repoName}-${version}-bump`;
+// const createBranch = version => {
+//   const branchName = `${repoName}-${version}-bump`;
+//
+//   execSync(`git checkout -b ${branchName}`, {
+//     stdio: 'inherit',
+//   });
+//
+//   // add package json and commit
+//
+//   return { branchName }; // also return commit name?
+// };
 
-  execSync(`git checkout -b ${branchName}`, {
-    stdio: 'inherit',
-  });
-
-  // add package json and commit
-
-  return { branchName }; // also return commit name?
-};
-
-module.exports = { createBranch };
+// module.exports = { createBranch };
 
 const openPR = async (version, commitId, branchName) => {
   console.log('Opening PR...');
